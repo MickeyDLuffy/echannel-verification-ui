@@ -1,0 +1,21 @@
+<div class="flex gap-4 p-10">
+  <aside class="basis-52">
+    <nav tuiTabs vertical="left" class="w-full">
+      <button type="button" tuiTab routerLink="verification" routerLinkActive>
+        Echannel Verification
+      </button>
+      <button
+        type="button"
+        tuiTab
+        routerLink="verification-data"
+        routerLinkActive
+      >
+        Echannel Verification Data
+      </button>
+    </nav>
+  </aside>
+
+  <main class="flex-1">
+    <router-outlet />
+  </main>
+</div>

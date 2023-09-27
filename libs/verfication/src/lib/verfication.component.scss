@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+td,
+th {
+  white-space: nowrap;
+  // border-color: transparent;
+}
+
+thead tr th {
+  background: var(--tui-base-02);
+}
+
+tr:nth-child(even) td {
+  background: var(--accent);
+}

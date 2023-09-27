@@ -1,0 +1,36 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@echannel-verification/data-auth": ["libs/data-auth/src/index.ts"],
+      "@echannel-verification/data-config": ["libs/data-config/src/index.ts"],
+      "@echannel-verification/data-http-service": [
+        "libs/data-http-service/src/index.ts"
+      ],
+      "@echannel-verification/data-interface": [
+        "libs/data-interface/src/index.ts"
+      ],
+      "@echannel-verification/data-util": ["libs/data-util/src/index.ts"],
+      "@echannel-verification/verfication": ["libs/verfication/src/index.ts"],
+      "@echannel-verification/verfication-data": [
+        "libs/verfication-data/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

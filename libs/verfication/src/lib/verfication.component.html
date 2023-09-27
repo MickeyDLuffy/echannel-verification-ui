@@ -1,0 +1,149 @@
+<ng-container *ngIf="verificationsRes$ | async as verificationsRes">
+  <tui-loader
+    [overlay]="false"
+    [showLoader]="verificationsRes?.pending ?? false"
+    class="flex"
+  >
+    <div class="bg-white mb-4">
+      <div class="flex p-4 shadow">
+        <div class="text-base font-medium text-blue-950 flex-1">
+          Echannel Verification
+        </div>
+      </div>
+      <div class="p-5 flex gap-4">
+        <button type="button" tuiButton size="s" >
+          Open
+        </button>
+        <button type="button" tuiButton size="s">
+          View Only
+        </button>
+      </div>
+      <div class="p-4">
+        <div class="flex">
+          <table tuiTable [columns]="columns" class="flex-1">
+            <!-- <tui-scrollbar class="flex overflow-auto  w-[100%] pb-3"> -->
+            <thead>
+              <tr tuiThGroup>
+                <th
+                  aria-label="select"
+                  *tuiHead="'select'"
+                  [sorter]="null"
+                  tuiTh
+                >
+                  <tui-primitive-checkbox
+                    [value]="false"
+                  ></tui-primitive-checkbox>
+                </th>
+                <th tuiTh *tuiHead="'created_on'" [sorter]="sorter">
+                  Created Time
+                </th>
+                <th
+                  tuiTh
+                  *tuiHead="'priority'"
+                  tuiHint="Date"
+                  [sorter]="sorter"
+                >
+                  Priority
+                </th>
+                <th
+                  tuiTh
+                  *tuiHead="'source_bu'"
+                  tuiHint="complainant Name"
+                  [sorter]="sorter"
+                >
+                  Source BU
+                </th>
+                <th
+                  tuiTh
+                  *tuiHead="'business_key'"
+                  tuiHint="Complainant Code"
+                  [sorter]="sorter"
+                >
+                  Reference
+                </th>
+                <th
+                  tuiTh
+                  *tuiHead="'dcp_reference'"
+                  tuiHint="Complaint Number"
+                  [sorter]="sorter"
+                >
+                  DCP Reference
+                </th>
+                <th
+                  tuiTh
+                  *tuiHead="'account_name'"
+                  tuiHint="Respondent Name"
+                  [sorter]="sorter"
+                >
+                  Account Name
+                </th>
+                <th
+                  tuiTh
+                  *tuiHead="'transaction_currency'"
+                  tuiHint="Respondent Code"
+                  [sorter]="sorter"
+                >
+                  Trans. Ccy
+                </th>
+                <th
+                  tuiTh
+                  *tuiHead="'transaction_amount'"
+                  tuiHint="Status"
+                  [sorter]="sorter"
+                >
+                  Trans. Amt
+                </th>
+                <th
+                  tuiTh
+                  *tuiHead="'locked_by'"
+                  tuiHint="Created By"
+                  [sorter]="sorter"
+                >
+                  Locked By
+                </th>
+              </tr>
+            </thead>
+            <ng-container *ngIf="data$ | async as verifications">
+              <tbody tuiTbody [data]="verifications">
+                <tr *ngFor="let verification of verifications" tuiTr>
+                  <td *tuiCell="'select'" tuiTd>
+                    <tui-primitive-checkbox
+                      [value]="false"
+                    ></tui-primitive-checkbox>
+                  </td>
+                  <td *tuiCell="'created_on'" tuiTd>
+                    {{ verification.created_on | date : 'mediumDate' }}
+                  </td>
+                  <td *tuiCell="'priority'" tuiTd>
+                    {{ verification?.priority }}
+                  </td>
+                  <td *tuiCell="'source_bu'" tuiTd>
+                    {{ verification?.source_bu }}
+                  </td>
+                  <td *tuiCell="'business_key'" tuiTd>
+                    {{ verification?.business_key }}
+                  </td>
+                  <td *tuiCell="'dcp_reference'" tuiTd>
+                    {{ verification?.dcp_reference }}
+                  </td>
+                  <td *tuiCell="'account_name'" tuiTd>
+                    {{ verification.account_name }}
+                  </td>
+                  <td *tuiCell="'transaction_currency'" tuiTd>
+                    {{ verification?.transaction_currency }}
+                  </td>
+                  <td *tuiCell="'transaction_amount'" tuiTd>
+                    {{ verification?.transaction_amount }}
+                  </td>
+                  <td *tuiCell="'locked_by'" tuiTd>
+                    {{ verification?.locked_by }}
+                  </td>
+                </tr>
+              </tbody>
+            </ng-container>
+          </table>
+        </div>
+      </div>
+    </div>
+  </tui-loader>
+</ng-container>
